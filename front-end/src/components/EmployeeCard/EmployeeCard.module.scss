@@ -1,0 +1,9 @@
+.EmployeeCard {
+  display: flex;
+  justify-content: space-between;
+  &_Details {
+    & > p {
+      margin-top: 0;
+    }
+  }
+}
