@@ -1,9 +1,15 @@
 import React from "react";
+import { NavLink, useParams } from "react-router-dom";
 
 const ModifyEmployeeCard = () => {
+  const { id } = useParams();
+
   return (
     <div>
-      <span>Edit</span> | <span>Remove</span>
+      <NavLink to="/edit">
+        <span>Edit</span>
+      </NavLink>
+      |<span>Remove</span>
     </div>
   );
 };
