@@ -2,12 +2,16 @@ import React from "react";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
 import styles from "./EmployeeContainer.module.scss";
 import { useNavigate } from "react-router-dom";
+import { UseGetAllEmployees } from "../../components/hooks/getAllEmployeesQuery";
 
 const EmployeeContainer = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
+  const navigate: void = useNavigate();
+
+  const handleClick: void = () => {
     navigate("/new");
   };
+
+  const { data, isLoading } = UseGetAllEmployees();
 
   return (
     <div className={styles.EmployeeContainer}>
@@ -18,7 +22,15 @@ const EmployeeContainer = () => {
         <button onClick={handleClick}>Add employee</button>
       </div>
       <div>
-        <EmployeeCard />
+        {isLoading ? (
+          <p>Loading</p>
+        ) : data ? (
+          data.map((employee, key) => {
+            return <EmployeeCard data={employee} key={key} />;
+          })
+        ) : (
+          <p>Whoops</p>
+        )}
       </div>
     </div>
   );

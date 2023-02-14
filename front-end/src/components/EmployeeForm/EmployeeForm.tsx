@@ -2,18 +2,27 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-enum GenderEnum {
-  female = "female",
-  male = "male",
-  other = "other",
+enum ContractTypeEnum {
+  permanent = "permanent",
+  contract = "contract",
+}
+
+enum TimeEnum {
+  partTime = "part time",
+  fullTime = "full time",
 }
 
 interface IFormInput {
   firstName: String;
+  middleName: String;
+  lastName: String;
   gender: GenderEnum;
+  emailAddress: String;
+  mobileNumber: number;
+  address: String;
 }
 
-const EmployeeForm = () => {
+export const EmployeeForm = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
