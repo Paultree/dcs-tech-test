@@ -3,6 +3,9 @@ import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./EmployeeForm.module.scss";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 enum ContractTypeEnum {
   permanent = "permanent",
@@ -14,7 +17,7 @@ enum TimeEnum {
   fullTime = "full time",
 }
 
-interface IFormInput {
+interface Employee {
   firstName: String;
   middleName: String;
   lastName: String;
@@ -23,14 +26,52 @@ interface IFormInput {
   address: String;
   contractType: ContractTypeEnum;
   startDate: String;
-  endDate: String | null;
+  endDate: String;
   employTime: TimeEnum;
   hoursPerWk: number;
 }
 
+const createEmployee = async (data: Employee) => {
+  const { data: response } = await axios.post(
+    "http://localhost:8080/employee",
+    data
+  );
+  return response.data;
+};
+
 export const EmployeeForm = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/");
+  };
+
+  const currentDate = new Date();
+
+  const queryClient = useQueryClient();
+  const { register, handleSubmit, errors } = useForm<Employee>({
+    mode: "onChange",
+  });
+  const { mutate, isLoading } = useMutation(createEmployee, {
+    onSuccess: (data) => {
+      const message = "success";
+      alert(message);
+    },
+    onError: () => {
+      alert("there was an error");
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries("create");
+    },
+  });
+
+  const onSubmit = (data: Employee) => {
+    const employee = {
+      ...data,
+    };
+    mutate(employee);
+    handleNavigate();
+  };
 
   const [isPermanent, setIsPermanent] = useState(true);
 
@@ -132,7 +173,7 @@ export const EmployeeForm = () => {
         <input
           type="date"
           name="endDate"
-          disabled={isPermanent}
+          hidden={isPermanent}
           {...register("endDate")}
         />
         <label>Is this on a full-time or part-time basis?</label>

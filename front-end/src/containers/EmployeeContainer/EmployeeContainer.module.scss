@@ -1,8 +1,12 @@
 .EmployeeContainer {
   width: 50%;
   padding-left: 10rem;
-  & > div {
+  &_Header {
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid black;
+  }
+  & > div {
     padding: 1rem 0;
     &:first-child {
       display: flex;

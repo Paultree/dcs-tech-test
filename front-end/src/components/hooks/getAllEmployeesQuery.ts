@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useQuery } from "react-query";
+import { useQuery, useMutation } from "react-query";
 
 const allEmployeeUrl: String = "http://localhost:8080/employee";
 
