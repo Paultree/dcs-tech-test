@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styles from "./EmployeeForm.module.scss";
+import { useEffect, useState } from "react";
 
 enum ContractTypeEnum {
   permanent = "permanent",
@@ -30,6 +31,19 @@ interface IFormInput {
 export const EmployeeForm = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+
+  const [isPermanent, setIsPermanent] = useState(true);
+
+  const handleChange = (e) => {
+    if (e.target.name !== "contractType") {
+      return;
+    }
+    if (e.target.value === "permanent") {
+      setIsPermanent(true);
+    } else {
+      setIsPermanent(false);
+    }
+  };
 
   return (
     <form className={styles.EmployeeForm} onSubmit={handleSubmit(onSubmit)}>
@@ -91,6 +105,8 @@ export const EmployeeForm = () => {
             <input
               type="radio"
               value="permanent"
+              name="contractType"
+              onClick={handleChange}
               {...register("contractType", { required: true })}
             />
             Permanent
@@ -99,21 +115,33 @@ export const EmployeeForm = () => {
             <input
               type="radio"
               value="contract"
+              name="contractType"
+              onClick={handleChange}
               {...register("contractType", { required: true })}
             />
             Contract
           </div>
         </div>
-        <label htmlFor="">Start Date</label>
-        <input type="date" />
-        <label htmlFor="">End Date</label>
-        <input type="date" />
+        <label>Start Date</label>
+        <input
+          type="date"
+          name="startDate"
+          {...register("startDate", { required: true })}
+        />
+        <label>End Date</label>
+        <input
+          type="date"
+          name="endDate"
+          disabled={isPermanent}
+          {...register("endDate")}
+        />
         <label>Is this on a full-time or part-time basis?</label>
         <div>
           <div>
             <input
               type="radio"
               value="fullTime"
+              name="employTime"
               {...register("employTime", { required: true })}
             />
             Full Time
@@ -122,6 +150,7 @@ export const EmployeeForm = () => {
             <input
               type="radio"
               value="partTime"
+              name="employTime"
               {...register("employTime", { required: true })}
             />
             Part Time
