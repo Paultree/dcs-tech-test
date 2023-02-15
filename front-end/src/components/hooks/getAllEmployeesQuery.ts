@@ -3,7 +3,7 @@ import { useQuery, useMutation } from "react-query";
 
 const allEmployeeUrl: String = "http://localhost:8080/employee";
 
-const getAllEmployees = async () => {
+export const getAllEmployees = async () => {
   const response: Promise = await axios.get(allEmployeeUrl);
   return response.data;
 };
