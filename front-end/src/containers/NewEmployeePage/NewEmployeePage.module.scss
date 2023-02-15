@@ -1,6 +1,14 @@
 .NewEmployeePage {
-  & > h1 {
+  &_Header {
     padding: 2.5rem 10rem;
     background: rgba(128, 128, 128, 0.323);
+  }
+}
+
+span {
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+    color: blue;
   }
 }

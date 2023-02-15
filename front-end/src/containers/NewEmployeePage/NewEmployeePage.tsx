@@ -6,9 +6,18 @@ import styles from "./NewEmployeePage.module.scss";
 const NewEmployeePage = () => {
   const navigate: void = useNavigate();
 
+  function handleClick() {
+    navigate("/");
+  }
+
   return (
     <div className={styles.NewEmployeePage}>
-      <h1>Employee Details</h1>
+      <div className={styles.NewEmployeePage_Header}>
+        <p>
+          &lt;&nbsp;<span onClick={handleClick}>Back</span>
+        </p>
+        <h1>Employee Details</h1>
+      </div>
       <EmployeeForm />
     </div>
   );
