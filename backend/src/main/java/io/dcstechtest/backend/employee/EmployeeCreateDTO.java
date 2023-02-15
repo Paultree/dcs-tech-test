@@ -33,9 +33,7 @@ public class EmployeeCreateDTO {
 	private String address;
 	
 	@NotBlank
-	@Min(0)
-	@Max(1)
-	private Byte isFullTime;
+	private String contractType;
 	
 	@NotNull
     private LocalDate startDate;
@@ -43,21 +41,35 @@ public class EmployeeCreateDTO {
     @Nullable
     private LocalDate endDate;
     
+    @NotBlank
+    private String employTime;
+    
     @NotNull
-    @Min(38)
-    @Max(60)
+    @Min(3)
+    @Max(38)
     private Byte hoursPerWk;
     
-    public EmployeeCreateDTO(String firstName, String middleName, String lastName, String email, Long mobileNumber, String address, Byte isFullTime, LocalDate startDate, LocalDate endDate, Byte hoursPerWk) {
+    public EmployeeCreateDTO(String firstName, 
+    		String middleName, 
+    		String lastName, 
+    		String email, 
+    		Long mobileNumber, 
+    		String address, 
+    		String contractType, 
+    		LocalDate startDate, 
+    		LocalDate endDate, 
+    		String employTime,
+    		Byte hoursPerWk) {
     	this.firstName = firstName;
     	this.middleName = middleName;
     	this.lastName = lastName;
     	this.email = email;
     	this.mobileNumber = mobileNumber;
     	this.address = address;
-    	this.isFullTime = isFullTime;
+    	this.contractType = contractType;
     	this.startDate = startDate;
     	this.endDate = endDate;
+    	this.employTime = employTime;
     	this.hoursPerWk = hoursPerWk;
     }
 
@@ -109,12 +121,20 @@ public class EmployeeCreateDTO {
 		this.address = address;
 	}
 
-	public Byte getIsFullTime() {
-		return isFullTime;
+	public String getContractType() {
+		return contractType;
 	}
 
-	public void setIsFullTime(Byte isFullTime) {
-		this.isFullTime = isFullTime;
+	public void setContractType(String contractType) {
+		this.contractType = contractType;
+	}
+
+	public String getEmployTime() {
+		return employTime;
+	}
+
+	public void setEmployTime(String employTime) {
+		this.employTime = employTime;
 	}
 
 	public LocalDate getStartDate() {

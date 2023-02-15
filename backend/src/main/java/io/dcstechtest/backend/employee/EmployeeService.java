@@ -18,7 +18,17 @@ public class EmployeeService {
 		String cleanedFirstName = data.getFirstName().toUpperCase();
 		String cleanedMiddleName = data.getMiddleName().toUpperCase();
 		String cleanedLastName = data.getLastName().toUpperCase();
-		Employee newEmployee = new Employee(cleanedFirstName, cleanedMiddleName, cleanedLastName, data.getEmail(), data.getMobileNumber(), data.getAddress(), data.getIsFullTime(), data.getStartDate(), data.getEndDate(), data.getHoursPerWk());
+		Employee newEmployee = new Employee(cleanedFirstName, 
+				cleanedMiddleName, 
+				cleanedLastName, 
+				data.getEmail(), 
+				data.getMobileNumber(), 
+				data.getAddress(), 
+				data.getContractType(), 
+				data.getStartDate(), 
+				data.getEndDate(), 
+				data.getEmployTime(),
+				data.getHoursPerWk());
 		this.repository.save(newEmployee);
 		return newEmployee;
 	}

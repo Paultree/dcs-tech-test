@@ -33,7 +33,7 @@ public class Employee {
 	private String address;
 	
 	@Column
-	private Byte isFullTime;
+	private String contractType;
 	
 	@Column
     private LocalDate startDate;
@@ -42,22 +42,36 @@ public class Employee {
     private LocalDate endDate;
     
     @Column
+    private String employTime;
+    
+    @Column
 	private Byte hoursPerWk;
 	
     public Employee() {
     	
     }
     
-    public Employee(String firstName, String middleName, String lastName, String email, Long mobileNumber,String address, Byte isFullTime, LocalDate startDate, LocalDate endDate, Byte hoursPerWk) {
+    public Employee(String firstName, 
+    		String middleName, 
+    		String lastName, 
+    		String email, 
+    		Long mobileNumber,
+    		String address, 
+    		String contractType, 
+    		LocalDate startDate, 
+    		LocalDate endDate, 
+    		String employTime,
+    		Byte hoursPerWk) {
     	this.firstName = firstName;
     	this.middleName = middleName;
     	this.lastName = lastName;
     	this.email = email;
     	this.mobileNumber = mobileNumber;
     	this.address = address;
-    	this.isFullTime = isFullTime;
+    	this.contractType = contractType;
     	this.startDate = startDate;
     	this.endDate = endDate;
+    	this.employTime = employTime;
     	this.hoursPerWk = hoursPerWk;
     }
     
@@ -113,12 +127,20 @@ public class Employee {
 		this.address = address;
 	}
 
-	public Byte getIsFullTime() {
-		return isFullTime;
+	public String getContractType() {
+		return contractType;
 	}
 
-	public void setIsFullTime(Byte isFullTime) {
-		this.isFullTime = isFullTime;
+	public void setContractType(String contractType) {
+		this.contractType = contractType;
+	}
+
+	public String getEmployTime() {
+		return employTime;
+	}
+
+	public void setEmployTime(String employTime) {
+		this.employTime = employTime;
 	}
 
 	public LocalDate getStartDate() {

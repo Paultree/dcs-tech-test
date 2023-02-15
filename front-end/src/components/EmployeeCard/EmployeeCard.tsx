@@ -7,9 +7,9 @@ const EmployeeCard = ({ data }) => {
     <div className={styles.EmployeeCard}>
       <div className={styles.EmployeeCard_Details}>
         <p>
-          {data.firstName} {data.lastName}
+          {data.firstName} {data.middleName} {data.lastName}
         </p>
-        <p>{data.isFullTime} - 2yrs</p>
+        <p>{data.isFullTime === 1 ? "Fulltime" : "Contracted"} - 2yrs</p>
         <p>{data.email}</p>
       </div>
       <ModifyEmployeeCard />
