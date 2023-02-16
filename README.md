@@ -25,12 +25,14 @@ the employee is left to the criteria of the candidate.
 - Employee list that renders on main page with summary of their information: name, years employed, contract type and email.
 - Remove button that deletes employee from database.
 - Form hides the end date input if user selects permanent option.
+- Added a page that allows user to edit current employee details.
 
 # Known Issues
 
 # Future Goals
 
 - add in a modify feature which allows user to update certain information about existing employees.
+- add in test suites for front end and back end.
 
 # Change Logs
 
