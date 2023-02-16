@@ -8,13 +8,13 @@ import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 
 enum ContractTypeEnum {
-  permanent = "permanent",
-  contract = "contract",
+  Permanent = "permanent",
+  Contract = "contract",
 }
 
 enum TimeEnum {
-  partTime = "part time",
-  fullTime = "full time",
+  PartTime = "part time",
+  FullTime = "full time",
 }
 
 interface Employee {
