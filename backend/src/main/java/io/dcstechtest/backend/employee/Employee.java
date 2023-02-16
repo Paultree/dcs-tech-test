@@ -36,22 +36,22 @@ public class Employee {
 	private String contractType;
 	
 	@Column
-    private LocalDate startDate;
+   	private LocalDate startDate;
 
-    @Column
-    private LocalDate endDate;
+    	@Column
+    	private LocalDate endDate;
     
-    @Column
-    private String employTime;
+    	@Column
+    	private String employTime;
     
-    @Column
+    	@Column
 	private Byte hoursPerWk;
 	
-    public Employee() {
+    	public Employee() {
     	
-    }
+    	}
     
-    public Employee(String firstName, 
+    	public Employee(String firstName, 
     		String middleName, 
     		String lastName, 
     		String email, 
@@ -73,11 +73,11 @@ public class Employee {
     	this.endDate = endDate;
     	this.employTime = employTime;
     	this.hoursPerWk = hoursPerWk;
-    }
+    	}
     
-    public Long getId() {
-        return id;
-    }
+    	public Long getId() {
+        	return id;
+    	}
     
 	public String getFirstName() {
 		return firstName;
