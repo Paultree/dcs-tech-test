@@ -3,7 +3,6 @@ package io.dcstechtest.backend.employee;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.annotations.common.util.impl.Log_.logger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +38,10 @@ public class EmployeeController {
 	public ResponseEntity<Employee> getById(@PathVariable Long id) {
 		Optional<Employee> maybeEmployee = this.service.getById(id);
 		if (maybeEmployee.isEmpty()) {
+			logger.error("Employee by id" + id + " was not found.");
 			return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 		}
+		logger.info("Employee of id" + id + " successfully found.");
 		return new ResponseEntity<>(maybeEmployee.get(), HttpStatus.OK);
 	}
 	
