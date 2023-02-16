@@ -1,0 +1,45 @@
+.EmployeeDetails {
+  padding: 0 10rem;
+  &_Header {
+    padding: 2.5rem 10rem;
+    background: rgba(128, 128, 128, 0.323);
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    & > input {
+      margin: 1rem 0;
+    }
+  }
+  &_PersonalDetails {
+    width: 20%;
+  }
+  &_ContactDetails {
+    width: 30%;
+    &_Address {
+      width: 200%;
+    }
+  }
+  &_EmployeeStatus {
+    width: 30%;
+    & > div {
+      margin: 1rem 0;
+    }
+    &_Hours {
+      width: 15%;
+    }
+  }
+}
+
+input {
+  padding: 0.5rem;
+  border: 0.1rem solid black;
+  border-radius: 0.2rem;
+}
+
+label {
+  font-weight: 550;
+}
+
+h3 {
+}
