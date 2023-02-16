@@ -3,6 +3,9 @@ package io.dcstechtest.backend.employee;
 import java.util.List;
 import java.util.Optional;
 
+import org.hibernate.annotations.common.util.impl.Log_.logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +22,16 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 @RequestMapping("/employee")
 public class EmployeeController {
+	
+	Logger logger = LoggerFactory.getLogger(EmployeeController.class);
+	
 	@Autowired
 	private EmployeeService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Employee>> getAll() {
 		List<Employee> allEmployees = this.service.getAll();
+		logger.info("Employees retrieved successfully");
 		return new ResponseEntity<>(allEmployees, HttpStatus.OK);
 	}
 	
