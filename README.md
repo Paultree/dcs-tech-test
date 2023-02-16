@@ -4,6 +4,8 @@ Employee information app built with React TypeScript + Java Springboot
 
 # Demo & Snippets
 
+![Alt Text](./demo.png)
+
 # Requirement/Purpose
 
 We need a web application to create, list, modify and delete employees. The application should consist of a
