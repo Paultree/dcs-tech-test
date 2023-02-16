@@ -49,9 +49,15 @@ export const EmployeeForm = () => {
   const currentDate = new Date();
 
   const queryClient = useQueryClient();
-  const { register, handleSubmit, errors } = useForm<Employee>({
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Employee>({
     mode: "onChange",
   });
+
   const { mutate, isLoading } = useMutation(createEmployee, {
     onSuccess: (data) => {
       const message = "success";
@@ -97,12 +103,14 @@ export const EmployeeForm = () => {
             pattern: /^[a-z ,.'-]+$/i,
           })}
         />
+        {errors.firstName && "First name is missing/invalid."}
         <label>Middle Name (if applicable)</label>
         <input
           {...register("middleName", {
             pattern: /^[a-z ,.'-]+$/i,
           })}
         />
+        {errors.middleName && "Middle name is invalid."}
         <label>Last Name</label>
         <input
           {...register("lastName", {
@@ -110,6 +118,7 @@ export const EmployeeForm = () => {
             pattern: /^[a-z ,.'-]+$/i,
           })}
         />
+        {errors.lastName && "Last name is missing/invalid."}
       </div>
       <div className={styles.EmployeeForm_ContactDetails}>
         <h3>Contact Details</h3>
@@ -121,6 +130,7 @@ export const EmployeeForm = () => {
               /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
           })}
         />
+        {errors.email && "Email address is missing/invalid."}
         <label>Mobile Number</label>
         <input
           type="tel"
@@ -129,6 +139,7 @@ export const EmployeeForm = () => {
             pattern: /^\d{10}$/,
           })}
         />
+        {errors.mobileNumber && "Mobile number is missing/invalid."}
         <label>Residential Address</label>
         <input
           className={styles.EmployeeForm_ContactDetails_Address}
@@ -137,6 +148,7 @@ export const EmployeeForm = () => {
             pattern: /\w+(\s\w+){2,}/,
           })}
         />
+        {errors.address && "Address is missing/invalid."}
       </div>
       <div className={styles.EmployeeForm_EmployeeStatus}>
         <h3>Employee Status</h3>
@@ -162,6 +174,7 @@ export const EmployeeForm = () => {
             />
             Contract
           </div>
+          {errors.contractType && "Contract type required to be selected."}
         </div>
         <label>Start Date</label>
         <input
@@ -169,6 +182,7 @@ export const EmployeeForm = () => {
           name="startDate"
           {...register("startDate", { required: true })}
         />
+        {errors.startDate && "Start date required."}
         <label>End Date</label>
         <input
           type="date"
@@ -176,6 +190,7 @@ export const EmployeeForm = () => {
           hidden={isPermanent}
           {...register("endDate")}
         />
+        {errors.endDate && "End date invalid."}
         <label>Is this on a full-time or part-time basis?</label>
         <div>
           <div>
@@ -196,12 +211,14 @@ export const EmployeeForm = () => {
             />
             Part Time
           </div>
+          {errors.employTime && "Employment type required."}
         </div>
         <label>Hours Per Week</label>
         <input
           className={styles.EmployeeForm_EmployeeStatus_Hours}
           {...register("hoursPerWk", { required: true, min: 3, max: 38 })}
         />
+        {errors.hoursPerWk && "Hours per week missing/invalid."}
         <input type="submit" />
       </div>
     </form>
