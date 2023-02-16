@@ -2,7 +2,7 @@ import React from "react";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
 import styles from "./EmployeeContainer.module.scss";
 import { useNavigate } from "react-router-dom";
-import { UseGetAllEmployees } from "../../components/hooks/getAllEmployeesQuery";
+import { useGetAllEmployees } from "../../components/hooks/getAllEmployeesQuery";
 import { useState, useEffect } from "react";
 import { useMutation } from "react-query";
 import axios from "axios";
@@ -14,7 +14,7 @@ const EmployeeContainer = () => {
     navigate("/new");
   };
 
-  const { data, isLoading } = UseGetAllEmployees();
+  const { data, isLoading } = useGetAllEmployees();
 
   const deleteEmployee = useMutation((id) => {
     return axios.delete(`http://localhost:8080/employee/${id}`);

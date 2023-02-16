@@ -17,7 +17,7 @@ const EmployeeCard = ({ handleDelete, data }) => {
         </p>
         <p>{data.email}</p>
       </div>
-      <ModifyEmployeeCard id={data.id} handleDelete={handleDelete} />
+      <ModifyEmployeeCard handleDelete={handleDelete} />
     </div>
   );
 };

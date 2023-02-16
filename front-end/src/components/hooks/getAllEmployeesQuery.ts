@@ -8,7 +8,7 @@ export const getAllEmployees = async () => {
   return response.data;
 };
 
-export const UseGetAllEmployees = () => {
+export const useGetAllEmployees = () => {
   const { isLoading, data } = useQuery(["allEmployees"], getAllEmployees);
   return { data, isLoading };
 };

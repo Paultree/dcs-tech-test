@@ -3,7 +3,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { deleteEmployeeById } from "../hooks/getAllEmployeesQuery";
 import { useMutation } from "react-query";
 
-const ModifyEmployeeCard = ({ id, handleDelete }) => {
+const ModifyEmployeeCard = ({ handleDelete }) => {
   return (
     <div>
       <span onClick={handleDelete}>Remove</span>
