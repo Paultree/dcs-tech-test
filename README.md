@@ -10,6 +10,11 @@ We need a web application to create, list, modify and delete employees. The appl
 RESTful API (can be in .net core or any backend framework of your choice) and a React frontend. The schema for
 the employee is left to the criteria of the candidate.
 
+- Homepage listing employees - [x]
+- Employee form for user to input new employee details -[x]
+- Edit existing employees -[x]
+- Remove/delete existing employees -[x]
+
 # Build Steps
 
 # Design Goals/Approach
@@ -38,7 +43,8 @@ the employee is left to the criteria of the candidate.
 
 # What did you struggle with?
 
--
+- Creating the testing was quite a struggle due to not being comfortable enough with it.
+- Figuring out how to connect the CRUD methods between front-end and back-end due to not being comfortable enough with it.
 
 # Licencing Details
 
