@@ -49,6 +49,10 @@ public class EmployeeCreateDTO {
     @Max(38)
     private Byte hoursPerWk;
     
+    public EmployeeCreateDTO() {
+    	
+    }
+    
     public EmployeeCreateDTO(String firstName, 
     		String middleName, 
     		String lastName, 

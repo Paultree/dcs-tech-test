@@ -38,6 +38,8 @@ the employee is left to the criteria of the candidate.
 
 # What did you struggle with?
 
+-
+
 # Licencing Details
 
 # Further Details
