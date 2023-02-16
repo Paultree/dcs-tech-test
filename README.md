@@ -15,7 +15,40 @@ the employee is left to the criteria of the candidate.
 - Edit existing employees -[x]
 - Remove/delete existing employees -[x]
 
+Stack used:
+
+- React
+- Typescript
+- SASS
+- Java
+- Springboot
+
 # Build Steps
+
+Prequisities:
+
+- Vite
+- Google Chrome
+- VCS
+- mySQL
+- Eclipse IDE (version 2022-09 (4.25.0))
+
+Steps:
+
+- Clone repo
+- navigate into front-end/ using CLI
+- npm install
+- npm run dev
+- Open Google Chrome browser and copy link in command line (local: link) into browser searchbar.
+- Import backend server into Eclipse IDE(version 2022-09 (4.25.0)): File -> Import -> Maven -> Existing Maven Projects
+- Select backend/ and finish.
+- Right click project in package explorer and click Run as -> 'Java Application'.
+- Server will run on http://localhost:8080
+- Create new database in mySQL
+- update application.properties file in dcs-tech-test/backend/src/main/resources
+  - jdbc:mysql://localhost:3306/<database-name>
+  - username: your mysql server username
+  - password: your mysql server password
 
 # Design Goals/Approach
 
@@ -36,8 +69,10 @@ the employee is left to the criteria of the candidate.
 
 # Future Goals
 
-- add in a modify feature which allows user to update certain information about existing employees.
-- add in test suites for front end and back end.
+- Make app responsive to phone screens
+- Refactor code to make it more testable and understandable.
+- Add in more test files to test rendering in other components in front end.
+- Add in more tests for backend.
 
 # Change Logs
 
