@@ -2,7 +2,7 @@ import React from "react";
 import ModifyEmployeeCard from "../ModifyEmployeeCard/ModifyEmployeeCard";
 import styles from "./EmployeeCard.module.scss";
 
-const EmployeeCard = ({ handleDelete, data }) => {
+const EmployeeCard = ({ handleDelete, data, handleModify }) => {
   const currentYear: number = new Date().getFullYear();
   const startYear: number = new Date(data.startDate).getFullYear();
 
@@ -17,7 +17,7 @@ const EmployeeCard = ({ handleDelete, data }) => {
         </p>
         <p>{data.email}</p>
       </div>
-      <ModifyEmployeeCard handleDelete={handleDelete} />
+      <ModifyEmployeeCard handleDelete={handleDelete} id={data.id} />
     </div>
   );
 };

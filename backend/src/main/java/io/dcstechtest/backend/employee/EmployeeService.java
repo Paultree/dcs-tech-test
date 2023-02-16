@@ -49,4 +49,52 @@ public class EmployeeService {
 		this.repository.delete(maybeEmployee.get());
 		return true;
 	}
+	
+	public Employee update(Long jobId, EmployeeUpdateDTO data, Employee employee) {
+        if (data.firstName != null) {
+            employee.setFirstName(data.firstName.trim());
+        }
+        
+        if (data.middleName != null) {
+            employee.setMiddleName(data.middleName.trim());
+        }
+        
+        if (data.lastName != null) {
+            employee.setLastName(data.lastName.trim());
+        }
+
+        if (data.email != null) {
+            employee.setEmail(data.email);
+        }
+        
+        if (data.mobileNumber != null) {
+            employee.setMobileNumber(data.mobileNumber);
+        }
+        
+        if (data.address != null) {
+            employee.setAddress(data.address);
+        }
+        
+        if (data.contractType != null) {
+            employee.setContractType(data.contractType);
+        }
+        
+        if (data.startDate != null) {
+            employee.setStartDate(data.startDate);
+        }
+
+        if (data.endDate != null) {
+            employee.setEndDate(data.endDate);
+        }
+
+        if (data.employTime != null) {
+            employee.setEmployTime(data.employTime);
+        }
+        
+        if (data.hoursPerWk != null) {
+            employee.setHoursPerWk(data.hoursPerWk);
+        }
+        
+        return this.repository.save(employee);
+    }
 }

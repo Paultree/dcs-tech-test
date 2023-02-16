@@ -7,6 +7,7 @@ import {
   Switch,
 } from "react-router-dom";
 import NewEmployeePage from "./containers/NewEmployeePage/NewEmployeePage";
+import EmployeeDetails from "./components/EmployeeDetails/EmployeeDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<EmployeeContainer />} />
         <Route path="/new" element={<NewEmployeePage />} />
+        <Route path="/modify/:id" element={<EmployeeDetails />} />
       </Routes>
     </div>
   );

@@ -6,6 +6,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
+import {
+  nameRegex,
+  emailRegex,
+  numberRegex,
+  addressRegex,
+} from "../common/regex";
 
 enum ContractTypeEnum {
   Permanent = "permanent",
@@ -100,14 +106,14 @@ export const EmployeeForm = () => {
         <input
           {...register("firstName", {
             required: true,
-            pattern: /^[a-z ,.'-]+$/i,
+            pattern: nameRegex,
           })}
         />
         {errors.firstName && "First name is missing/invalid."}
         <label>Middle Name (if applicable)</label>
         <input
           {...register("middleName", {
-            pattern: /^[a-z ,.'-]+$/i,
+            pattern: nameRegex,
           })}
         />
         {errors.middleName && "Middle name is invalid."}
@@ -115,7 +121,7 @@ export const EmployeeForm = () => {
         <input
           {...register("lastName", {
             required: true,
-            pattern: /^[a-z ,.'-]+$/i,
+            pattern: nameRegex,
           })}
         />
         {errors.lastName && "Last name is missing/invalid."}
@@ -126,8 +132,7 @@ export const EmployeeForm = () => {
         <input
           {...register("email", {
             required: true,
-            pattern:
-              /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            pattern: emailRegex,
           })}
         />
         {errors.email && "Email address is missing/invalid."}
@@ -136,7 +141,7 @@ export const EmployeeForm = () => {
           type="tel"
           {...register("mobileNumber", {
             required: true,
-            pattern: /^\d{10}$/,
+            pattern: numberRegex,
           })}
         />
         {errors.mobileNumber && "Mobile number is missing/invalid."}
@@ -145,7 +150,7 @@ export const EmployeeForm = () => {
           className={styles.EmployeeForm_ContactDetails_Address}
           {...register("address", {
             required: true,
-            pattern: /\w+(\s\w+){2,}/,
+            pattern: addressRegex,
           })}
         />
         {errors.address && "Address is missing/invalid."}

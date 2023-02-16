@@ -5,49 +5,51 @@ import java.time.LocalDate;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.lang.Nullable;
 
 public class EmployeeUpdateDTO {
 
-	@NotBlank
+	@Nullable
 	@Pattern(regexp = "[a-zA-Z]*")
-	private String firstName;
+	String firstName;
+	
 	@Pattern(regexp = "\\s*|[a-zA-Z]*")
 	@Nullable
-	private String middleName;
-	@NotBlank
+	String middleName;
+	
+	@Nullable
 	@Pattern(regexp = "\\s*|[a-zA-Z]*")
-	private String lastName;
-	@NotBlank
+	String lastName;
+	
+	@Nullable
 	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")
-	private String email;
+	String email;
 	
-	@NotNull
+	@Nullable
 	@Pattern(regexp = "[0-9]*{10}")
-	private Long mobileNumber;
+	Long mobileNumber;
 	
-	@NotBlank
-	private String address;
+	@Nullable
+	String address;
 	
-	@NotBlank
-	private String contractType;
+	@Nullable
+	String contractType;
 	
-	@NotNull
-    private LocalDate startDate;
+	@Nullable
+    LocalDate startDate;
 
     @Nullable
-    private LocalDate endDate;
+    LocalDate endDate;
     
     @NotBlank
-    private String employTime;
+    String employTime;
     
-    @NotNull
+    @Nullable
     @Min(3)
     @Max(38)
-    private Byte hoursPerWk;
+    Byte hoursPerWk;
     
     public EmployeeUpdateDTO(String firstName, 
     		String middleName, 
