@@ -1,10 +1,10 @@
 package io.dcstechtest.backend.employee;
 
-import java.time.LocalDate;
+
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -68,7 +68,7 @@ public class EmployeeController {
 	}
 	
 	@PutMapping("/{id}")
-    public ResponseEntity<Employee> updateJob(@PathVariable Long id,
+    public ResponseEntity<Employee> update(@PathVariable Long id,
             @RequestBody EmployeeUpdateDTO data) {
 
         Optional<Employee> maybeEmployee = this.service.getById(id);

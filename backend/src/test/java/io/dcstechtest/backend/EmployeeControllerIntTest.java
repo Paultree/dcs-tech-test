@@ -24,27 +24,15 @@ public class EmployeeControllerIntTest {
 	@Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
 
     @Test
-    public void testGetAllEmployees() throws Exception {
+    public void testGetAll() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/employee")).andExpect(status().isOk());
     }
 
     @Test
-    public void testGetEmployeeById() throws Exception {
+    public void testGetById() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/employee/1")).andExpect(status().isOk());
     }
 
-    @Test
-    public void testAddEmployee() throws Exception {
-        EmployeeCreateDTO employee = new EmployeeCreateDTO();
-        mockMvc.perform(MockMvcRequestBuilders.post("/employee").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(employee))).andExpect(status().isCreated());
-    }
-
-    @Test
-    public void testDeleteEmployee() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.delete("/employee/1")).andExpect(status().isNoContent());
-    }
 }

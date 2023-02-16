@@ -1,7 +1,5 @@
 package io.dcstechtest.backend.employee;
 
-import java.time.LocalDate;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -36,10 +34,10 @@ public class EmployeeCreateDTO {
 	private String contractType;
 	
 	@NotNull
-    private LocalDate startDate;
+    private String startDate;
 
     @Nullable
-    private LocalDate endDate;
+    private String endDate;
     
     @NotBlank
     private String employTime;
@@ -47,7 +45,7 @@ public class EmployeeCreateDTO {
     @NotNull
     @Min(3)
     @Max(38)
-    private Byte hoursPerWk;
+    private String hoursPerWk;
     
     public EmployeeCreateDTO() {
     	
@@ -60,10 +58,10 @@ public class EmployeeCreateDTO {
     		Long mobileNumber, 
     		String address, 
     		String contractType, 
-    		LocalDate startDate, 
-    		LocalDate endDate, 
+    		String startDate, 
+    		String endDate, 
     		String employTime,
-    		Byte hoursPerWk) {
+    		String hoursPerWk) {
     	this.firstName = firstName;
     	this.middleName = middleName;
     	this.lastName = lastName;
@@ -141,27 +139,27 @@ public class EmployeeCreateDTO {
 		this.employTime = employTime;
 	}
 
-	public LocalDate getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Byte getHoursPerWk() {
+	public String getHoursPerWk() {
 		return hoursPerWk;
 	}
 
-	public void setHoursPerWk(Byte hoursPerWk) {
+	public void setHoursPerWk(String hoursPerWk) {
 		this.hoursPerWk = hoursPerWk;
 	}
 
-	public LocalDate getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 }

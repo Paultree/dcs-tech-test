@@ -1,7 +1,5 @@
 package io.dcstechtest.backend.employee;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,16 +34,16 @@ public class Employee {
 	private String contractType;
 	
 	@Column
-   	private LocalDate startDate;
+   	private String startDate;
 
     	@Column
-    	private LocalDate endDate;
+    	private String endDate;
     
     	@Column
     	private String employTime;
     
     	@Column
-	private Byte hoursPerWk;
+    	private String hoursPerWk;
 	
     	public Employee() {
     	
@@ -58,10 +56,10 @@ public class Employee {
     		Long mobileNumber,
     		String address, 
     		String contractType, 
-    		LocalDate startDate, 
-    		LocalDate endDate, 
+    		String startDate, 
+    		String endDate, 
     		String employTime,
-    		Byte hoursPerWk) {
+    		String hoursPerWk) {
     	this.firstName = firstName;
     	this.middleName = middleName;
     	this.lastName = lastName;
@@ -143,27 +141,27 @@ public class Employee {
 		this.employTime = employTime;
 	}
 
-	public LocalDate getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDate getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
-	public Byte getHoursPerWk() {
+	public String getHoursPerWk() {
 		return hoursPerWk;
 	}
 
-	public void setHoursPerWk(Byte hoursPerWk) {
+	public void setHoursPerWk(String hoursPerWk) {
 		this.hoursPerWk = hoursPerWk;
 	}
 
