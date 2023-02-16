@@ -16,20 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/employee")
 public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 	
 	@GetMapping
-	@CrossOrigin
 	public ResponseEntity<List<Employee>> getAll() {
 		List<Employee> allEmployees = this.service.getAll();
 		return new ResponseEntity<>(allEmployees, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	@CrossOrigin
 	public ResponseEntity<Employee> getById(@PathVariable Long id) {
 		Optional<Employee> maybeEmployee = this.service.getById(id);
 		if (maybeEmployee.isEmpty()) {
@@ -39,14 +38,12 @@ public class EmployeeController {
 	}
 	
 	@PostMapping
-	@CrossOrigin
 	public ResponseEntity<Employee> create(@RequestBody EmployeeCreateDTO data) {
 		Employee createdEmployee = this.service.create(data);
 		return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping("/{id}")
-	@CrossOrigin
 	public ResponseEntity<Employee> delete(@PathVariable Long id) {
 		boolean isDeleted = this.service.delete(id);
 		
