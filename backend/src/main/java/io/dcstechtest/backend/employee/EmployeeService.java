@@ -50,6 +50,7 @@ public class EmployeeService {
 		return true;
 	}
 	
+	@SuppressWarnings("null")
 	public Employee update(Long jobId, EmployeeUpdateDTO data, Employee employee) {
         if (data.firstName != null) {
             employee.setFirstName(data.firstName.trim());

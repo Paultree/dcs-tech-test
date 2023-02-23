@@ -87,7 +87,7 @@ export const EmployeeForm = () => {
 
   const [isPermanent, setIsPermanent] = useState(true);
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     if (e.target.name !== "contractType") {
       return;
     }
@@ -102,41 +102,63 @@ export const EmployeeForm = () => {
     <form className={styles.EmployeeForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.EmployeeForm_PersonalDetails}>
         <h3>Personal Information</h3>
-        <label>First Name</label>
+        <label>
+          First Name:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.firstName && "Required or Invalid!"}
+          </span>
+        </label>
         <input
           {...register("firstName", {
             required: true,
             pattern: nameRegex,
           })}
         />
-        {errors.firstName && "First name is missing/invalid."}
-        <label>Middle Name (if applicable)</label>
+        <label>
+          Middle Name (if applicable):
+          <span className={styles.ErrorMessage}>
+            {errors.middleName && "Invalid!"}
+          </span>
+        </label>
         <input
           {...register("middleName", {
             pattern: nameRegex,
           })}
         />
-        {errors.middleName && "Middle name is invalid."}
-        <label>Last Name</label>
+        <label>
+          Last Name:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.lastName && "Required or Invalid!"}
+          </span>
+        </label>
         <input
           {...register("lastName", {
             required: true,
             pattern: nameRegex,
           })}
         />
-        {errors.lastName && "Last name is missing/invalid."}
       </div>
       <div className={styles.EmployeeForm_ContactDetails}>
         <h3>Contact Details</h3>
-        <label>Email Address</label>
+        <label>
+          Email Address:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.email && "Required or Invalid!"}
+          </span>
+        </label>
         <input
           {...register("email", {
             required: true,
             pattern: emailRegex,
           })}
         />
-        {errors.email && "Email address is missing/invalid."}
-        <label>Mobile Number</label>
+
+        <label>
+          Mobile Number:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.mobileNumber && "Required or Invalid!"}
+          </span>
+        </label>
         <input
           type="tel"
           {...register("mobileNumber", {
@@ -144,8 +166,12 @@ export const EmployeeForm = () => {
             pattern: numberRegex,
           })}
         />
-        {errors.mobileNumber && "Mobile number is missing/invalid."}
-        <label>Residential Address</label>
+        <label>
+          Residential Address:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.address && "Required or Invalid!"}
+          </span>
+        </label>
         <input
           className={styles.EmployeeForm_ContactDetails_Address}
           {...register("address", {
@@ -153,17 +179,20 @@ export const EmployeeForm = () => {
             pattern: addressRegex,
           })}
         />
-        {errors.address && "Address is missing/invalid."}
       </div>
       <div className={styles.EmployeeForm_EmployeeStatus}>
         <h3>Employee Status</h3>
-        <label>Contract Type</label>
+        <label>
+          Contract Type:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.contractType && "Required or Invalid!"}
+          </span>
+        </label>
         <div>
           <div>
             <input
               type="radio"
               value="permanent"
-              name="contractType"
               onClick={handleChange}
               {...register("contractType", { required: true })}
             />
@@ -173,36 +202,29 @@ export const EmployeeForm = () => {
             <input
               type="radio"
               value="contract"
-              name="contractType"
               onClick={handleChange}
               {...register("contractType", { required: true })}
             />
             Contract
           </div>
-          {errors.contractType && "Contract type required to be selected."}
         </div>
-        <label>Start Date</label>
-        <input
-          type="date"
-          name="startDate"
-          {...register("startDate", { required: true })}
-        />
-        {errors.startDate && "Start date required."}
-        <label>End Date</label>
-        <input
-          type="date"
-          name="endDate"
-          hidden={isPermanent}
-          {...register("endDate")}
-        />
-        {errors.endDate && "End date invalid."}
-        <label>Is this on a full-time or part-time basis?</label>
+        <label>Start Date: {errors.startDate && "Required or Invalid!"}</label>
+        <input type="date" {...register("startDate", { required: true })} />
+        <label hidden={isPermanent}>
+          End Date: <span>{errors.endDate && "Invalid!"}</span>
+        </label>
+        <input type="date" hidden={isPermanent} {...register("endDate")} />
+        <label>
+          Is this on a full-time or part-time basis?{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.employTime && "Required or Invalid!"}
+          </span>
+        </label>
         <div>
           <div>
             <input
               type="radio"
               value="fullTime"
-              name="employTime"
               {...register("employTime", { required: true })}
             />
             Full Time
@@ -211,19 +233,21 @@ export const EmployeeForm = () => {
             <input
               type="radio"
               value="partTime"
-              name="employTime"
               {...register("employTime", { required: true })}
             />
             Part Time
           </div>
-          {errors.employTime && "Employment type required."}
         </div>
-        <label>Hours Per Week</label>
+        <label>
+          Hours Per Week:{" "}
+          <span className={styles.ErrorMessage}>
+            {errors.hoursPerWk && "Required or Invalid!"}
+          </span>
+        </label>
         <input
           className={styles.EmployeeForm_EmployeeStatus_Hours}
           {...register("hoursPerWk", { required: true, min: 3, max: 38 })}
         />
-        {errors.hoursPerWk && "Hours per week missing/invalid."}
         <input type="submit" />
       </div>
     </form>

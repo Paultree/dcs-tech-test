@@ -7,10 +7,25 @@ import { useState, useEffect } from "react";
 import { useMutation } from "react-query";
 import axios from "axios";
 
-const EmployeeContainer = () => {
-  const navigate: void = useNavigate();
+type Employee = {
+  id: number;
+  firstName: String;
+  middleName: String;
+  lastName: String;
+  email: String;
+  mobileNumber: number;
+  address: String;
+  contractType: String;
+  startDate: String;
+  endDate: String;
+  employTime: String;
+  hoursPerWk: number;
+};
 
-  const handleClick: void = () => {
+const EmployeeContainer = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
     navigate("/new");
   };
 
@@ -22,7 +37,7 @@ const EmployeeContainer = () => {
 
   return (
     <div className={styles.EmployeeContainer}>
-      <h1>Employee's List</h1>
+      <h1>Employees List</h1>
       <div className={styles.EmployeeContainer_Header}>
         <p>Please click on 'Edit' to find more details of each employee.</p>
 
@@ -32,7 +47,7 @@ const EmployeeContainer = () => {
         {isLoading ? (
           <p>Loading</p>
         ) : data ? (
-          data.map((employee, key) => {
+          data.map((employee: Employee, key: number) => {
             return (
               <EmployeeCard
                 data={employee}

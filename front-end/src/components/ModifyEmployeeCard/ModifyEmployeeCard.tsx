@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink, useParams, Link } from "react-router-dom";
-import { deleteEmployeeById } from "../hooks/getAllEmployeesQuery";
 import { useMutation } from "react-query";
+import styles from "./ModifyEmployeeCard.module.scss";
 
-const ModifyEmployeeCard = ({ handleDelete, handleModify, id }) => {
+const ModifyEmployeeCard = ({ handleDelete, id }) => {
   return (
-    <div>
+    <div className={styles.ModifyEmployeeCard}>
       <Link to={`/modify/${id}`}>
         <span>Edit</span>
       </Link>
