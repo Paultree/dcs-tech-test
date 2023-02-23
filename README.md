@@ -1,4 +1,4 @@
-## dcs-tech-test
+## employee-information
 
 Employee information app built with React TypeScript + Java Springboot
 
@@ -8,9 +8,7 @@ Employee information app built with React TypeScript + Java Springboot
 
 # Requirement/Purpose
 
-We need a web application to create, list, modify and delete employees. The application should consist of a
-RESTful API (can be in .net core or any backend framework of your choice) and a React frontend. The schema for
-the employee is left to the criteria of the candidate.
+A web application to create, list, modify and delete employees. Purpose of project is to reinforce and upskill in creating a full-stack application and upskilling in React TypeScript and Java Springboot.
 
 - Homepage listing employees - [x]
 - Employee form for user to input new employee details -[x]
