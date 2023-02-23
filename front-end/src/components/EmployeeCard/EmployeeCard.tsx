@@ -2,7 +2,7 @@ import React from "react";
 import ModifyEmployeeCard from "../ModifyEmployeeCard/ModifyEmployeeCard";
 import styles from "./EmployeeCard.module.scss";
 
-const EmployeeCard = ({ handleDelete, data, handleModify }) => {
+const EmployeeCard = ({ handleDelete, data }) => {
   const currentYear: number = new Date().getFullYear();
   const startYear: number = new Date(data.startDate).getFullYear();
 
@@ -10,7 +10,9 @@ const EmployeeCard = ({ handleDelete, data, handleModify }) => {
     <div className={styles.EmployeeCard}>
       <div className={styles.EmployeeCard_Details}>
         <p>
-          {data.firstName} {data.middleName} {data.lastName}
+          <strong>
+            {data.firstName} {data.middleName} {data.lastName}
+          </strong>
         </p>
         <p>
           {data.contractType.toUpperCase()} - {currentYear - startYear} years

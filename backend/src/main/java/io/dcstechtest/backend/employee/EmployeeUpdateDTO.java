@@ -1,5 +1,7 @@
 package io.dcstechtest.backend.employee;
 
+import java.time.LocalDate;
+
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -39,7 +41,7 @@ public class EmployeeUpdateDTO {
     String startDate;
 
     @Nullable
-    String endDate;
+    LocalDate endDate;
     
     @NotBlank
     String employTime;
@@ -61,7 +63,7 @@ public class EmployeeUpdateDTO {
     		String address, 
     		String contractType, 
     		String startDate, 
-    		String endDate, 
+    		LocalDate endDate, 
     		String employTime,
     		String hoursPerWk) {
     	this.firstName = firstName;
@@ -157,11 +159,11 @@ public class EmployeeUpdateDTO {
 		this.hoursPerWk = hoursPerWk;
 	}
 
-	public String getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 }

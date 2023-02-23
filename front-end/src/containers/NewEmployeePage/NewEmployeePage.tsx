@@ -4,7 +4,7 @@ import { EmployeeForm } from "../../components/EmployeeForm/EmployeeForm";
 import styles from "./NewEmployeePage.module.scss";
 
 const NewEmployeePage = () => {
-  const navigate: void = useNavigate();
+  const navigate = useNavigate();
 
   function handleClick() {
     navigate("/");

@@ -1,16 +1,18 @@
 import React from "react";
 import { NavLink, useParams, Link } from "react-router-dom";
-import { deleteEmployeeById } from "../hooks/getAllEmployeesQuery";
 import { useMutation } from "react-query";
+import styles from "./ModifyEmployeeCard.module.scss";
 
-const ModifyEmployeeCard = ({ handleDelete, handleModify, id }) => {
+const ModifyEmployeeCard = ({ handleDelete, id }) => {
   return (
     <div>
       <Link to={`/modify/${id}`}>
-        <span>Edit</span>
+        <span className={styles.ModifyButton}>Edit</span>
       </Link>
       &nbsp;|&nbsp;
-      <span onClick={handleDelete}>Remove</span>
+      <span className={styles.ModifyButton} onClick={handleDelete}>
+        Remove
+      </span>
     </div>
   );
 };

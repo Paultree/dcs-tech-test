@@ -1,5 +1,7 @@
 package io.dcstechtest.backend.employee;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,8 +38,8 @@ public class Employee {
 	@Column
    	private String startDate;
 
-    	@Column
-    	private String endDate;
+		@Column
+    	private LocalDate endDate;
     
     	@Column
     	private String employTime;
@@ -57,7 +59,7 @@ public class Employee {
     		String address, 
     		String contractType, 
     		String startDate, 
-    		String endDate, 
+    		LocalDate endDate, 
     		String employTime,
     		String hoursPerWk) {
     	this.firstName = firstName;
@@ -149,11 +151,11 @@ public class Employee {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
