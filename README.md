@@ -73,6 +73,10 @@ Steps:
 - Refactor code to make it more testable and understandable.
 - Add in more test files to test rendering in other components in front end.
 - Add in more tests for backend.
+- Create a form component which renders default values or not depending on user action (clicking new employee or edit button)
+  - reduces duplication in code.
+  - may need to redo entire codebase.
+- Create a service file which will house all methods involving API calls.
 
 # Change Logs
 
