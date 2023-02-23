@@ -102,25 +102,27 @@ export const EmployeeForm = () => {
     <form className={styles.EmployeeForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.EmployeeForm_PersonalDetails}>
         <h3>Personal Information</h3>
-        <label>
+        <label htmlFor="firstName">
           First Name:{" "}
           <span className={styles.ErrorMessage}>
             {errors.firstName && "Required or Invalid!"}
           </span>
         </label>
         <input
+          id="firstName"
           {...register("firstName", {
             required: true,
             pattern: nameRegex,
           })}
         />
-        <label>
+        <label htmlFor="middleName">
           Middle Name (if applicable):
           <span className={styles.ErrorMessage}>
             {errors.middleName && "Invalid!"}
           </span>
         </label>
         <input
+          id="middleName"
           {...register("middleName", {
             pattern: nameRegex,
           })}
@@ -182,7 +184,7 @@ export const EmployeeForm = () => {
       </div>
       <div className={styles.EmployeeForm_EmployeeStatus}>
         <h3>Employee Status</h3>
-        <label>
+        <label htmlFor="contractType">
           Contract Type:{" "}
           <span className={styles.ErrorMessage}>
             {errors.contractType && "Required or Invalid!"}
@@ -191,6 +193,7 @@ export const EmployeeForm = () => {
         <div>
           <div>
             <input
+              id="contractType"
               type="radio"
               value="permanent"
               onClick={handleChange}
@@ -200,6 +203,7 @@ export const EmployeeForm = () => {
           </div>
           <div>
             <input
+              id="contractType"
               type="radio"
               value="contract"
               onClick={handleChange}

@@ -13,20 +13,20 @@ import org.springframework.lang.Nullable;
 public class EmployeeCreateDTO {
 
 	@NotBlank
-	@Pattern(regexp = "[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	private String firstName;
-	@Pattern(regexp = "\\s*|[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	@Nullable
 	private String middleName;
 	@NotBlank
-	@Pattern(regexp = "\\s*|[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	private String lastName;
 	@NotBlank
-	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")
+	@Pattern(regexp = Regex.emailRegex)
 	private String email;
 	
 	@NotNull
-	@Pattern(regexp = "[0-9]*{10}")
+	@Pattern(regexp = Regex.numberRegex)
 	private Long mobileNumber;
 	
 	@NotBlank

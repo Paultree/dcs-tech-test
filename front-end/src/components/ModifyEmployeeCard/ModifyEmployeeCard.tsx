@@ -5,12 +5,14 @@ import styles from "./ModifyEmployeeCard.module.scss";
 
 const ModifyEmployeeCard = ({ handleDelete, id }) => {
   return (
-    <div className={styles.ModifyEmployeeCard}>
+    <div>
       <Link to={`/modify/${id}`}>
-        <span>Edit</span>
+        <span className={styles.ModifyButton}>Edit</span>
       </Link>
       &nbsp;|&nbsp;
-      <span onClick={handleDelete}>Remove</span>
+      <span className={styles.ModifyButton} onClick={handleDelete}>
+        Remove
+      </span>
     </div>
   );
 };

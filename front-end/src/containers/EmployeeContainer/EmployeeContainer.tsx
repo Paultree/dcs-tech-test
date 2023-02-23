@@ -52,7 +52,7 @@ const EmployeeContainer = () => {
               <EmployeeCard
                 data={employee}
                 key={key}
-                handleDelete={() => {
+                handleDelete={(): void => {
                   deleteEmployee.mutate(employee.id);
                 }}
               />
