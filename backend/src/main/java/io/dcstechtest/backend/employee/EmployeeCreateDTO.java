@@ -1,7 +1,5 @@
 package io.dcstechtest.backend.employee;
 
-import java.time.LocalDate;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -15,19 +13,22 @@ public class EmployeeCreateDTO {
 	@NotBlank
 	@Pattern(regexp = Regex.nameRegex)
 	private String firstName;
+	
 	@Pattern(regexp = Regex.nameRegex)
 	@Nullable
 	private String middleName;
+	
 	@NotBlank
 	@Pattern(regexp = Regex.nameRegex)
 	private String lastName;
+	
 	@NotBlank
 	@Pattern(regexp = Regex.emailRegex)
 	private String email;
 	
 	@NotNull
 	@Pattern(regexp = Regex.numberRegex)
-	private Long mobileNumber;
+	private String mobileNumber;
 	
 	@NotBlank
 	private String address;
@@ -39,7 +40,7 @@ public class EmployeeCreateDTO {
     private String startDate;
 
     @Nullable
-    private LocalDate endDate;
+    private String endDate;
     
     @NotBlank
     private String employTime;
@@ -57,11 +58,11 @@ public class EmployeeCreateDTO {
     		String middleName, 
     		String lastName, 
     		String email, 
-    		Long mobileNumber, 
+    		String mobileNumber, 
     		String address, 
     		String contractType, 
     		String startDate, 
-    		LocalDate endDate, 
+    		String endDate, 
     		String employTime,
     		String hoursPerWk) {
     	this.firstName = firstName;
@@ -109,11 +110,11 @@ public class EmployeeCreateDTO {
 		this.email = email;
 	}
 
-	public Long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(Long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -157,11 +158,11 @@ public class EmployeeCreateDTO {
 		this.hoursPerWk = hoursPerWk;
 	}
 
-	public LocalDate getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 }

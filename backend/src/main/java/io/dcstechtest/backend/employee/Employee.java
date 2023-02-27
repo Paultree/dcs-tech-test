@@ -1,7 +1,5 @@
 package io.dcstechtest.backend.employee;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +25,7 @@ public class Employee {
 	private String email;
 	
 	@Column
-	private Long mobileNumber;
+	private String mobileNumber;
 	
 	@Column
 	private String address;
@@ -39,7 +37,7 @@ public class Employee {
    	private String startDate;
 
 		@Column
-    	private LocalDate endDate;
+    	private String endDate;
     
     	@Column
     	private String employTime;
@@ -55,11 +53,11 @@ public class Employee {
     		String middleName, 
     		String lastName, 
     		String email, 
-    		Long mobileNumber,
+    		String mobileNumber,
     		String address, 
     		String contractType, 
     		String startDate, 
-    		LocalDate endDate, 
+    		String endDate, 
     		String employTime,
     		String hoursPerWk) {
     	this.firstName = firstName;
@@ -111,11 +109,11 @@ public class Employee {
 		this.email = email;
 	}
 
-	public Long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(Long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -151,11 +149,11 @@ public class Employee {
 		this.startDate = startDate;
 	}
 
-	public LocalDate getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 

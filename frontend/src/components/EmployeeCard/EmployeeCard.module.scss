@@ -1,0 +1,8 @@
+.EmployeeCard {
+  display: flex;
+  &_Details {
+    & > * {
+      margin: 0;
+    }
+  }
+}
