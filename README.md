@@ -56,6 +56,10 @@ Steps:
 - For the front-end, a new employee page will consist of a form which will be used to add new employees via submission.
 - On the homepage/mainpage, I'm going to have a button that will lead the user to a page that allows them to input information about the employee.
 - On the homepage, there will be a remove button which will essentially delete the employee from the database and list.
+- Isolated all the service/helper methods that will fetch/post data to the API server to 1 file called the api.ts.
+  - This will allow the components to look more manageable and create better tests.
+  - Now we are able to test pure rendering on the components and then test mock api calls in the api.ts file.
+- EmployeeForm file now populates with default values depending on whether user presses 'edit' or 'add new employee'
 
 # Features
 
@@ -77,6 +81,9 @@ Steps:
   - reduces duplication in code.
   - may need to redo entire codebase.
 - Create a service file which will house all methods involving API calls.
+- Now that service files have been made that house helper functions, can now create isolated test files.
+  - Test files that test whether files are rendered correctly.
+  - Test files that test whether api calls are correctly being made.
 
 # Change Logs
 
