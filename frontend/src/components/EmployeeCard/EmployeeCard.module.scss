@@ -1,8 +1,26 @@
 .EmployeeCard {
   display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.87);
   &_Details {
     & > * {
       margin: 0;
+    }
+    & > h2 {
+      margin-bottom: 1rem;
+    }
+    & > h4 {
+      margin-bottom: 1rem;
+    }
+  }
+  &_Buttons {
+    & > span {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+        color: rgb(92, 95, 177);
+      }
     }
   }
 }

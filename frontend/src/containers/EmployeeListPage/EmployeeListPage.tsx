@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { getAllEmployees } from "../../services/api";
 import { ThreeDots } from "react-loader-spinner";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
+import { useNavigate } from "react-router-dom";
 
 interface Employee {
   firstName: String;
@@ -20,8 +21,14 @@ interface Employee {
 }
 
 const EmployeeListPage = () => {
+  const navigate = useNavigate();
+
+  const toAdd = () => {
+    navigate("/add-employee");
+  };
+
   const { data, error, isLoading, isError }: any = useQuery(
-    "employee",
+    "employees",
     getAllEmployees
   );
 
@@ -64,9 +71,13 @@ const EmployeeListPage = () => {
       <div className={styles.EmployeeListPage_Header}>
         <h1>Employees List</h1>
       </div>
+      <div className={styles.EmployeeListPage_New}>
+        <p>Click 'Add New Employee' to add a new employee.</p>
+        <button onClick={toAdd}>Add New Employee</button>
+      </div>
       <div className={styles.EmployeeListPage_List}>
         {data.map((employee: Employee, id: number) => {
-          return <EmployeeCard data={employee} id={id} key={id} />;
+          return <EmployeeCard data={employee} key={id} />;
         })}
       </div>
     </div>
