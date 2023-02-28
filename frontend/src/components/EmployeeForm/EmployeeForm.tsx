@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ThreeDots } from "react-loader-spinner";
 import styles from "./EmployeeForm.module.scss";
@@ -8,16 +8,27 @@ import {
   numberRegex,
   addressRegex,
 } from "../../services/regex";
+import { Employee } from "../../services/employee";
 
 const EmployeeForm = ({ defaultValues, onFormSubmit, isLoading }: any) => {
+  const [isPermanent, setIsPermanent] = useState(false);
+
+  const onContractSelection = (e: any) => {
+    e.target.value === "permanent"
+      ? setIsPermanent(true)
+      : setIsPermanent(false);
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ defaultValues });
+    watch,
+  }: any = useForm({ defaultValues });
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const startDate = watch("startDate");
+
+  const onSubmit = handleSubmit((data: Employee) => {
     onFormSubmit(data);
   });
 
@@ -85,7 +96,6 @@ const EmployeeForm = ({ defaultValues, onFormSubmit, isLoading }: any) => {
           </span>
         </label>
         <input
-          type="tel"
           {...register("mobileNumber", {
             required: true,
             pattern: numberRegex,
@@ -119,6 +129,7 @@ const EmployeeForm = ({ defaultValues, onFormSubmit, isLoading }: any) => {
               id="contractType"
               type="radio"
               value="permanent"
+              onClick={onContractSelection}
               {...register("contractType", { required: true })}
             />
             Permanent
@@ -128,6 +139,7 @@ const EmployeeForm = ({ defaultValues, onFormSubmit, isLoading }: any) => {
               id="contractType"
               type="radio"
               value="contract"
+              onClick={onContractSelection}
               {...register("contractType", { required: true })}
             />
             Contract
@@ -135,10 +147,16 @@ const EmployeeForm = ({ defaultValues, onFormSubmit, isLoading }: any) => {
         </div>
         <label>Start Date: {errors.startDate && "Required or Invalid!"}</label>
         <input type="date" {...register("startDate", { required: true })} />
-        <label>
+        <label hidden={isPermanent}>
           End Date: <span>{errors.endDate && "Invalid!"}</span>
         </label>
-        <input type="date" {...register("endDate")} />
+        <input
+          type="date"
+          hidden={isPermanent}
+          {...register("endDate", {
+            min: startDate,
+          })}
+        />
         <label>
           Is this on a full-time or part-time basis?{" "}
           <span className={styles.ErrorMessage}>

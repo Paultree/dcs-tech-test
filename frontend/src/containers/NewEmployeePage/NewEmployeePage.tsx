@@ -5,17 +5,18 @@ import { ThreeDots } from "react-loader-spinner";
 import EmployeeForm from "../../components/EmployeeForm/EmployeeForm";
 import styles from "./NewEmployeePage.module.scss";
 import { useNavigate } from "react-router-dom";
+import { Employee } from "../../services/employee";
 
 const NewEmployeePage = () => {
   const navigate = useNavigate();
 
-  const toHome = () => {
+  const toHome: () => void = () => {
     navigate("/");
   };
 
   const { mutateAsync, isLoading } = useMutation(createEmployee);
 
-  const onFormSubmit = async (data: any) => {
+  const onFormSubmit = async (data: Employee) => {
     await mutateAsync(data);
     toHome();
   };

@@ -2,7 +2,7 @@ import React from "react";
 import ModifyEmployeeCard from "../ModifyEmployeeCard/ModifyEmployeeCard";
 import styles from "./EmployeeCard.module.scss";
 
-const EmployeeCard = ({ handleDelete, data }) => {
+const EmployeeCard = ({ handleDelete, data }: any) => {
   const currentYear: number = new Date().getFullYear();
   const startYear: number = new Date(data.startDate).getFullYear();
 

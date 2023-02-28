@@ -6,6 +6,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.Nullable;
 
 public class EmployeeCreateDTO {
@@ -26,8 +27,9 @@ public class EmployeeCreateDTO {
 	@Pattern(regexp = Regex.emailRegex)
 	private String email;
 	
-	@NotNull
+	@NotBlank
 	@Pattern(regexp = Regex.numberRegex)
+	@Length(min = 10, max = 10)
 	private String mobileNumber;
 	
 	@NotBlank

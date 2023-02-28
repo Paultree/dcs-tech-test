@@ -22,7 +22,7 @@ public class EmployeeService {
 				cleanedMiddleName, 
 				cleanedLastName, 
 				data.getEmail(), 
-				data.getMobileNumber(), 
+				data.getMobileNumber(),
 				data.getAddress(), 
 				data.getContractType(), 
 				data.getStartDate(), 
@@ -53,15 +53,15 @@ public class EmployeeService {
 	@SuppressWarnings("null")
 	public Employee update(Long jobId, EmployeeUpdateDTO data, Employee employee) {
         if (data.firstName != null) {
-            employee.setFirstName(data.firstName.trim());
+            employee.setFirstName(data.firstName.toUpperCase().trim());
         }
         
         if (data.middleName != null) {
-            employee.setMiddleName(data.middleName.trim());
+            employee.setMiddleName(data.middleName.toUpperCase().trim());
         }
         
         if (data.lastName != null) {
-            employee.setLastName(data.lastName.trim());
+            employee.setLastName(data.lastName.toUpperCase().trim());
         }
 
         if (data.email != null) {

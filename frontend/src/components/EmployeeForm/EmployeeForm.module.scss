@@ -1,0 +1,39 @@
+.EmployeeForm {
+  display: flex;
+  flex-direction: column;
+  &_PersonalDetails {
+    flex-direction: column;
+    display: flex;
+    width: 30%;
+  }
+  &_ContactDetails {
+    flex-direction: column;
+    display: flex;
+    width: 50%;
+    &_Address {
+      width: 150%;
+    }
+  }
+  &_EmployeeStatus {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    &_Hours {
+      width: 30%;
+    }
+  }
+}
+
+button {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+input {
+  margin-bottom: 1rem;
+  padding: 0.25rem;
+}
+
+.ErrorMessage {
+  color: red;
+}

@@ -10,23 +10,23 @@ import org.springframework.lang.Nullable;
 public class EmployeeUpdateDTO {
 
 	@Nullable
-	@Pattern(regexp = "[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	String firstName;
 	
-	@Pattern(regexp = "\\s*|[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	@Nullable
 	String middleName;
 	
 	@Nullable
-	@Pattern(regexp = "\\s*|[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	String lastName;
 	
 	@Nullable
-	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")
+	@Pattern(regexp = Regex.emailRegex)
 	String email;
 	
 	@Nullable
-	@Pattern(regexp = "[0-9]*{10}")
+	@Pattern(regexp = Regex.numberRegex)
 	String mobileNumber;
 	
 	@Nullable

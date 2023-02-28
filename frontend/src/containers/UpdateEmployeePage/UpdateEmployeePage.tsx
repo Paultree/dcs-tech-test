@@ -7,6 +7,7 @@ import { ThreeDots } from "react-loader-spinner";
 import EmployeeForm from "../../components/EmployeeForm/EmployeeForm";
 import { updateEmployee } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { Employee } from "../../services/employee";
 
 const UpdateEmployeePage = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const UpdateEmployeePage = () => {
   );
 
   const { mutateAsync, isLoading: isMutating } = useMutation(updateEmployee);
-  const onFormSubmit = async (data: any) => {
+  const onFormSubmit = async (data: Employee) => {
     await mutateAsync({ ...data, id });
     toHome();
   };

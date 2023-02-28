@@ -5,26 +5,16 @@ import { removeEmployee } from "../../services/api";
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 
-interface Employee {
-  firstName: String;
-  middleName: String;
-  lastName: String;
-  email: String;
-  mobileNumber: number;
-  address: String;
-  contractType: String;
-  startDate: String;
-  endDate: String;
-  employTime: String;
-  hoursPerWk: String;
-}
-
 const EmployeeCard = ({ data }: any) => {
   const navigate = useNavigate();
 
   const toUpdate = () => {
     navigate(`/edit-employee/${data.id}`);
   };
+
+  const currentYear: number = new Date().getFullYear();
+  const endYear: number = new Date(data.endDate).getFullYear();
+  const startYear: number = new Date(data.startDate).getFullYear();
 
   const queryClient = useQueryClient();
 
@@ -43,8 +33,10 @@ const EmployeeCard = ({ data }: any) => {
         </h2>
         <h4>
           {data.contractType.charAt(0).toUpperCase() +
-            data.contractType.slice(1)}
-          - Duration of service
+            data.contractType.slice(1)}{" "}
+          -{" "}
+          {data.endDate !== "" ? endYear - startYear : currentYear - startYear}{" "}
+          years
         </h4>
         <h4>{data.email}</h4>
       </div>

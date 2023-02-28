@@ -1,5 +1,6 @@
 import { useQuery, useMutation } from "react-query";
 import axios from "axios";
+import { Employee } from "./employee";
 
 const url: string = "http://localhost:8080/employee";
 
@@ -25,7 +26,7 @@ export const getEmployee = async ({ queryKey }: any) => {
   return response.data;
 };
 
-export const createEmployee = async (data: any) => {
+export const createEmployee = async (data: Employee) => {
   const response = await axios.post(`${url}`, data);
 
   if (!response) {
