@@ -1,4 +1,3 @@
-import { useQuery, useMutation } from "react-query";
 import axios from "axios";
 import { Employee } from "./employee";
 

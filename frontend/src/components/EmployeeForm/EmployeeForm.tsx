@@ -50,7 +50,7 @@ const EmployeeForm = ({ defaultValues, onFormSubmit, isLoading }: any) => {
           })}
         />
         <label htmlFor="middleName">
-          Middle Name (if applicable):
+          Middle Name - if applicable:
           <span className={styles.ErrorMessage}>
             {errors.middleName && "Invalid!"}
           </span>

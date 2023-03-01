@@ -41,9 +41,11 @@ const EmployeeCard = ({ data }: any) => {
         <h4>{data.email}</h4>
       </div>
       <div className={styles.EmployeeCard_Buttons}>
-        <span onClick={toUpdate}>Edit</span>
+        <span data-testid="edit" onClick={toUpdate}>
+          Edit
+        </span>
         &nbsp;-&nbsp;
-        <span onClick={remove}>
+        <span data-testid="remove" onClick={remove}>
           {isLoading ? (
             <ThreeDots
               color="rgba(255, 255, 255, 0.87)"
