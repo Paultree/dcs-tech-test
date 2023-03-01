@@ -71,6 +71,8 @@ Steps:
 - Added in basic validation for all input fields.
   - Name, email, mobile number and address use regex pattern to validate.
   - End date uses watch feature from useForm hook that watches the start date user picks and sets min date to cover cases where user decides to pick an end date before the start date.
+- Unit tests created for both componenents and some tests created for each service method for api service.
+  - Test mock axios calls on each method to make sure they actually work.
 
 # Known Issues
 
