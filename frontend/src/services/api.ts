@@ -40,7 +40,7 @@ export const updateEmployee = async ({ id, ...data }: any) => {
   if (!response) {
     throw new Error("Something went wrong. Unable to update employee.");
   }
-
+  console.log(response.data);
   return response.data;
 };
 

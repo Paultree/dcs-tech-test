@@ -24,7 +24,7 @@ const mockData = {
 
 vi.mock("axios");
 
-describe("api calls", () => {
+describe("api call methods", () => {
   beforeEach(() => {
     axios.get.mockReset();
     axios.post.mockReset();
@@ -56,6 +56,63 @@ describe("api calls", () => {
         mockData
       );
       expect(newEmployee).toStrictEqual(mockData);
+    });
+  });
+
+  describe("removeEmployee", () => {
+    test("makes a DELETE request to delete an employee by ID", async () => {
+      axios.delete.mockResolvedValue(true);
+
+      await removeEmployee(2);
+
+      expect(axios.delete).toHaveBeenCalledWith(
+        "http://localhost:8080/employee/2"
+      );
+    });
+  });
+
+  describe("getEmployee", () => {
+    const mockEmployee = {
+      id: 2,
+      ...mockData,
+    };
+
+    test("makes a GET request to retrieve a single employee by ID", async () => {
+      axios.get.mockResolvedValue({
+        data: mockData,
+      });
+
+      const employee = await getEmployee({ queryKey: ["employee", { id: 2 }] });
+
+      expect(axios.get).toHaveBeenCalledWith(
+        "http://localhost:8080/employee/2"
+      );
+      expect(employee).toStrictEqual(mockData);
+    });
+  });
+
+  describe("updateEmployee", () => {
+    test("makes a PUT request to update employee information", async () => {
+      const newData = {
+        firstName: "Paul",
+      };
+
+      const update = {
+        id: 2,
+        ...newData,
+      };
+
+      axios.put.mockResolvedValue({
+        data: { ...mockData, ...update },
+      });
+
+      const updatedEmployee = await updateEmployee(update);
+
+      expect(axios.put).toHaveBeenCalledWith(
+        "http://localhost:8080/employee/2",
+        newData
+      );
+      expect(updatedEmployee).toStrictEqual({ ...mockData, ...update });
     });
   });
 });
