@@ -4,7 +4,7 @@ Employee information app built with React TypeScript + Java Springboot
 
 # Demo & Snippets
 
-![Alt Text](./demo.png)
+![Alt Text](./project-demo.gif)
 
 # Requirement/Purpose
 
@@ -90,6 +90,7 @@ Steps:
   - Test files that test whether files are rendered correctly.
   - Test files that test whether api calls are correctly being made.
 - Add a pages section where main page only renders 5 employees. User will be able to navigate to other employees by clicking on page number. Alternatively, add a 'see more' button that renders more employees.
+- add tests that cover failed api calls.
 
 # Change Logs
 
