@@ -35,7 +35,7 @@ public class EmployeeServiceIntTest {
         employee.setMiddleName("dummy");
         employee.setLastName("one");
         employee.setEmail("test@random.com");
-        employee.setMobileNumber(1234567890L);
+        employee.setMobileNumber("0123456789");
         employee.setAddress("123 random avenue");
         employee.setContractType("permanent");
         employee.setStartDate("2010-02-10");
@@ -48,7 +48,7 @@ public class EmployeeServiceIntTest {
         updateEmployee.setMiddleName("");
         updateEmployee.setLastName("test");
         updateEmployee.setEmail("anotherone@live.com");
-        updateEmployee.setMobileNumber(1112223334L);
+        updateEmployee.setMobileNumber("0987654321");
         updateEmployee.setAddress("123 random street");
         updateEmployee.setContractType("contract");
         updateEmployee.setStartDate("2010-02-10");

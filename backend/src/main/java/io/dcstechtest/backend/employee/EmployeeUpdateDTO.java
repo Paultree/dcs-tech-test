@@ -1,7 +1,5 @@
 package io.dcstechtest.backend.employee;
 
-import java.time.LocalDate;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -12,24 +10,24 @@ import org.springframework.lang.Nullable;
 public class EmployeeUpdateDTO {
 
 	@Nullable
-	@Pattern(regexp = "[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	String firstName;
 	
-	@Pattern(regexp = "\\s*|[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	@Nullable
 	String middleName;
 	
 	@Nullable
-	@Pattern(regexp = "\\s*|[a-zA-Z]*")
+	@Pattern(regexp = Regex.nameRegex)
 	String lastName;
 	
 	@Nullable
-	@Pattern(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")
+	@Pattern(regexp = Regex.emailRegex)
 	String email;
 	
 	@Nullable
-	@Pattern(regexp = "[0-9]*{10}")
-	Long mobileNumber;
+	@Pattern(regexp = Regex.numberRegex)
+	String mobileNumber;
 	
 	@Nullable
 	String address;
@@ -41,7 +39,7 @@ public class EmployeeUpdateDTO {
     String startDate;
 
     @Nullable
-    LocalDate endDate;
+    String endDate;
     
     @NotBlank
     String employTime;
@@ -59,11 +57,11 @@ public class EmployeeUpdateDTO {
     		String middleName, 
     		String lastName, 
     		String email, 
-    		Long mobileNumber, 
+    		String mobileNumber, 
     		String address, 
     		String contractType, 
     		String startDate, 
-    		LocalDate endDate, 
+    		String endDate, 
     		String employTime,
     		String hoursPerWk) {
     	this.firstName = firstName;
@@ -111,11 +109,11 @@ public class EmployeeUpdateDTO {
 		this.email = email;
 	}
 
-	public Long getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(Long mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
@@ -159,11 +157,11 @@ public class EmployeeUpdateDTO {
 		this.hoursPerWk = hoursPerWk;
 	}
 
-	public LocalDate getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(LocalDate endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 }

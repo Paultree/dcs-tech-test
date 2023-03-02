@@ -56,6 +56,10 @@ Steps:
 - For the front-end, a new employee page will consist of a form which will be used to add new employees via submission.
 - On the homepage/mainpage, I'm going to have a button that will lead the user to a page that allows them to input information about the employee.
 - On the homepage, there will be a remove button which will essentially delete the employee from the database and list.
+- Isolated all the service/helper methods that will fetch/post data to the API server to 1 file called the api.ts.
+  - This will allow the components to look more manageable and create better tests.
+  - Now we are able to test pure rendering on the components and then test mock api calls in the api.ts file.
+- EmployeeForm file now populates with default values depending on whether user presses 'edit' or 'add new employee'.
 
 # Features
 
@@ -64,6 +68,11 @@ Steps:
 - Remove button that deletes employee from database.
 - Form hides the end date input if user selects permanent option.
 - Added a page that allows user to edit current employee details.
+- Added in basic validation for all input fields.
+  - Name, email, mobile number and address use regex pattern to validate.
+  - End date uses watch feature from useForm hook that watches the start date user picks and sets min date to cover cases where user decides to pick an end date before the start date.
+- Unit tests created for both componenents and some tests created for each service method for api service.
+  - Test mock axios calls on each method to make sure they actually work.
 
 # Known Issues
 
@@ -77,6 +86,10 @@ Steps:
   - reduces duplication in code.
   - may need to redo entire codebase.
 - Create a service file which will house all methods involving API calls.
+- Now that service files have been made that house helper functions, can now create isolated test files.
+  - Test files that test whether files are rendered correctly.
+  - Test files that test whether api calls are correctly being made.
+- Add a pages section where main page only renders 5 employees. User will be able to navigate to other employees by clicking on page number. Alternatively, add a 'see more' button that renders more employees.
 
 # Change Logs
 

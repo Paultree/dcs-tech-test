@@ -1,0 +1,15 @@
+.NewEmployeePage {
+  padding-left: 20rem;
+  width: 50%;
+  &_Header {
+    background-color: rgb(92, 95, 177);
+    margin-bottom: 1rem;
+    padding: 2.5rem 0;
+    & > p {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
