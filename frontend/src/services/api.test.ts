@@ -24,38 +24,34 @@ const mockData = {
 
 vi.mock("axios");
 
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
 describe("api call methods", () => {
   beforeEach(() => {
-    mockedAxios.get.mockReset();
-    mockedAxios.post.mockReset();
+    axios.get.mockReset();
+    axios.post.mockReset();
   });
 
   describe("getAllEmployees", () => {
     test("makes a GET request to fetch employees", async () => {
-      mockedAxios.get.mockResolvedValue({
+      axios.get.mockResolvedValue({
         data: mockData,
       });
 
       const employees = await getAllEmployees();
 
-      expect(mockedAxios.get).toHaveBeenCalledWith(
-        "http://localhost:8080/employee"
-      );
+      expect(axios.get).toHaveBeenCalledWith("http://localhost:8080/employee");
       expect(employees).toStrictEqual(mockData);
     });
   });
 
   describe("createEmployee", () => {
     test("makes a POST request to create a new employee", async () => {
-      mockedAxios.post.mockResolvedValue({
+      axios.post.mockResolvedValue({
         data: mockData,
       });
 
       const newEmployee = await createEmployee(mockData);
 
-      expect(mockedAxios.post).toHaveBeenCalledWith(
+      expect(axios.post).toHaveBeenCalledWith(
         "http://localhost:8080/employee",
         mockData
       );
@@ -65,11 +61,11 @@ describe("api call methods", () => {
 
   describe("removeEmployee", () => {
     test("makes a DELETE request to delete an employee by ID", async () => {
-      mockedAxios.delete.mockResolvedValue(true);
+      axios.delete.mockResolvedValue(true);
 
       await removeEmployee(2);
 
-      expect(mockedAxios.delete).toHaveBeenCalledWith(
+      expect(axios.delete).toHaveBeenCalledWith(
         "http://localhost:8080/employee/2"
       );
     });
@@ -82,13 +78,13 @@ describe("api call methods", () => {
     };
 
     test("makes a GET request to retrieve a single employee by ID", async () => {
-      mockedAxios.get.mockResolvedValue({
+      axios.get.mockResolvedValue({
         data: mockData,
       });
 
       const employee = await getEmployee({ queryKey: ["employee", { id: 2 }] });
 
-      expect(mockedAxios.get).toHaveBeenCalledWith(
+      expect(axios.get).toHaveBeenCalledWith(
         "http://localhost:8080/employee/2"
       );
       expect(employee).toStrictEqual(mockData);
@@ -106,13 +102,13 @@ describe("api call methods", () => {
         ...newData,
       };
 
-      mockedAxios.put.mockResolvedValue({
+      axios.put.mockResolvedValue({
         data: { ...mockData, ...update },
       });
 
       const updatedEmployee = await updateEmployee(update);
 
-      expect(mockedAxios.put).toHaveBeenCalledWith(
+      expect(axios.put).toHaveBeenCalledWith(
         "http://localhost:8080/employee/2",
         newData
       );
